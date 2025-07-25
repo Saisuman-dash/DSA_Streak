@@ -11,7 +11,7 @@ public:
           
 
             mx = max(mx,val);
-            
+
             if(val < 0)
             {
                 val = 0;
