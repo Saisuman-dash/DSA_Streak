@@ -1,28 +1,20 @@
 class Solution {
 public:
     int maxSum(vector<int>& nums) {
-        set<int> numb(nums.begin(),nums.end());
-        int n = numb.size();
         int sum = 0;
-        int mx = INT_MIN;
+        int mx = -100 ;
 
-        for(int val : numb)
-        {
-          
+        vector<int> Seen(101 , 0) ;
 
-            mx = max(mx,val);
-
-            if(val < 0)
-            {
-                val = 0;
-            }
-            sum += val;
-
+        for(int val : nums) {
+            mx = max(mx , val) ;
+            if(val < 0) continue ;
+            if(!Seen[val]) sum += val ;
+            Seen[val] = 1 ;
         }
-        if(sum == 0)
-        {
-            return mx;
-        }
+
+        if(sum == 0) sum = mx ;
+
         return sum;
     }
 };
