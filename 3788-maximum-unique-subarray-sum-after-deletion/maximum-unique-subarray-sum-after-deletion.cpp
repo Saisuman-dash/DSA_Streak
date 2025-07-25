@@ -8,12 +8,10 @@ public:
 
         for(int val : numb)
         {
-            if( n  == 1)
-            {
-                return val;
-            }
+          
 
             mx = max(mx,val);
+            
             if(val < 0)
             {
                 val = 0;
