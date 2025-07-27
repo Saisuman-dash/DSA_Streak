@@ -11,7 +11,7 @@ public:
         {
             int l= i-1;
             int r = i+1; 
-            while(r<n-1 && nums[i]==nums[r])
+            while(r<n && nums[i]==nums[r])
             {
                 r++;
             }
@@ -19,13 +19,16 @@ public:
             {
                 continue;
             }
-            if(nums[i]>nums[l] && nums[i]>nums[r])
+            if (l >= 0 && r < n)
+            {
+                if(nums[i]>nums[l] && nums[i]>nums[r])
             {
                 h++;
             }
             if(nums[i]<nums[l] && nums[i]<nums[r])
             {
                 v++;
+            }
             }
         }
         return h+v;
