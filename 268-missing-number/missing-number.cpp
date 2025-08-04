@@ -1,19 +1,13 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        int p;
-        sort(nums.begin(),nums.end());
-        for(int i=0;i<nums.size();i++)
+        int n = nums.size();
+        int actsum =0;
+        int expsum =n*(n+1)/2;
+        for(int i=0;i<n;i++)
         {
-            if(nums[i]!=i)
-            {
-               p=i;
-               break;
-            }
-            else{
-                p=nums.size();
-            }
+            actsum += nums[i];
         }
-        return p;
+        return expsum-actsum;
     }
 };
