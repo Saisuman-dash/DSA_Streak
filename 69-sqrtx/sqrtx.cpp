@@ -14,6 +14,6 @@ public:
                 low = mid + 1 ;
             }
         }
-        return (int)high ;
+        return static_cast<int>(high) ;
     }
 };
