@@ -1,21 +1,19 @@
+using ll = long long ;
 class Solution {
 public:
     int mySqrt(int x) {
-        int p;
-        if(x==0 || x==1)return x;
-        for(long long i=1;i<=x;i++)
-    {
-        if(i*i==x)
-        {
-           return i;
-           break;
+        ll low = 1 , high = x ;
+        while(low <= high) {
+            ll mid = low + (high - low) / 2 ;
+            ll sq = mid * mid ;
+            if(sq == x) {
+                return mid ;
+            } else if (sq > x) {
+                high = mid - 1 ;
+            } else {
+                low = mid + 1 ;
+            }
         }
-        if(i*i>x)
-        {
-           return i-1;
-           break;
-        }
-    }
-    return -1;
+        return (int)high ;
     }
 };
