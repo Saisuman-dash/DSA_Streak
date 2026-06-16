@@ -7,7 +7,11 @@ class Solution(object):
         """
         n = len(nums)
         k = k%n
-        if(k>n or k<0):
-            k = 1
-        nums[:]=nums[n-k:]+nums[:n-k]
-        
+        def rev(i,j):
+            while(i<j):
+                nums[i],nums[j]=nums[j],nums[i]
+                i += 1
+                j -= 1
+        rev(0,n-1)
+        rev(0,k-1)
+        rev(k,n-1)
